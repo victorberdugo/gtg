@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pasarela de pago</title>
+  <style>
+    /* Estilos básicos para la pasarela de pago */
+    .payment-gateway {
+      width: 500px;
+      margin: 40px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .payment-gateway h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #payment-form {
+      margin-top: 20px;
+    }
+
+    #payment-form label {
+      display: block;
+      margin-bottom: 10px;
+      color: #666;
+      font-size: 14px;
+    }
+
+    #payment-form input[type="text"] {
+      width: 90%;
+      height: 40px;
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    #payment-form button[type="submit"] {
+      width: 100%;
+      height: 40px;
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #payment-form button[type="submit"]:hover {
+      background-color: #3e8e41;
+    }
+
+    .transaction-info {
+      margin-top: 20px;
+    }
+
+    .transaction-info p {
+      margin-bottom: 10px;
+    }
+
+    .transaction-info span {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <!-- Contenedor principal de la pasarela de pago -->
+  <div class="payment-gateway">
+    <!-- Título de la pasarela de pago -->
+    <h2>Pasarela de pago</h2>
+    
+    <!-- Formulario de pago -->
+    <form id="payment-form">
+      <!-- Campo para ingresar el número de tarjeta -->
+      <label for="card-number">Número de tarjeta:</label>
+      <input type="text" id="card-number" name="card-number" placeholder="4242 4242 4242 4242" required>
+      
+      <!-- Campo para ingresar la fecha de vencimiento -->
+      <label for="expiration-date">Fecha de vencimiento (MM/AA):</label>
+      <input type="text" id="expiration-date" name="expiration-date" placeholder="11/31" required>
+      
+      <!-- Campo para ingresar el código de seguridad -->
+      <label for="security-code">Código de seguridad:</label>
+      <input type="text" id="security-code" name="security-code" placeholder="123" required>
+      
+      <!-- Campo para ingresar la dirección -->
+      <label for="address">Dirección:</label>
+      <input type="text" id="address" name="address" placeholder="Calle 123, Apt 456" required>
+      
+      <!-- Campo para ingresar la ciudad -->
+      <label for="city">Ciudad:</label>
+      <input type="text" id="city" name="city" placeholder="Ciudad de México" required>
+      
+      <!-- Campo para ingresar el estado -->
+      <label for="state">Estado:</label>
+      <input type="text" id="state" name="state" placeholder="CDMX" required>
+      
+      <!-- Campo para ingresar el código postal -->
+      <label for="zip-code">Código postal:</label>
+      <input type="text" id="zip-code" name="zip-code" placeholder="11500" required>
+      
+      <!-- Botón para enviar el formulario de pago -->
+      <button type="submit">Pagar</button>
+    </form>
+    
+    <!-- Información adicional sobre la transacción -->
+    <div class="transaction-info">
+      <p>Importe a pagar: <span id="amount">$0.00</span></p>
+      <p>Descripción de la transacción: <span id="description"></span></p>
+    </div>
+  </div>
+  
+  <script>
+    // Función para formatear la fecha de vencimiento
+    function formatExpirationDate(date) {
+      var parts = date.split('/');
+      if (parts[0].length === 
